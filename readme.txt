@@ -1,9 +1,9 @@
 === The Events Calendar Category Colors ===
-Contributors: afragen, jonahcoyote, barryhughes
+Contributors: afragen, WebsiteBakery
 Tags: events, color, modern tribe, tribe
 Requires at least: 3.1
 Tested up to: 3.5
-Stable tag: 1.5.6
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Add background colors to month event view of The Events Calendar events.
 
 Add background colors to event categories displayed in the month event view of The Events Calendar. This is inspired by [Coloring Your Category Events](http://tri.be/coloring-your-category-events).
 
-Settings for The Events Calendar Category Colors plugin are located in their own tab on The Events Calendar Settings page. 
+Settings for The Events Calendar Category Colors plugin are located in their own tab on The Events Calendar Settings page.
 
 == Installation ==
 
@@ -31,10 +31,6 @@ Within your copy of `ecp-page-template.php` you will need to insert `<?php teccc
 
 Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events-calendar/) is written by Modern Tribe, Inc. It requires at least The Events Calendar v2.0.5.
 
-= Where can I report bugs? =
-
-Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-category-colors).
-
 = My calendar is taking on the styling of my first event of the month =
 
 There are two things you can try.
@@ -43,12 +39,41 @@ There are two things you can try.
 
 2. Using <a href="http://tri.be/support/documentation/events-calendar-themers-guide/">Themer's Guide for The Events Calendar</a> create a new _ecp-page-template.php_, adjust this new template to correspond to how you want your calendar displayed and choose **Default Events Template** from the Events Calendar Settings.
 
+= What are Legend Superpowers? =
+
+Legend Superpowers are an optional visual effect allowing visitors to focus only on those events that belong to categories of interest - without reloading the page and without eliminating other categories from view completely.
+
+It needs to be enabled in the Category Colors settings page. The Category Legend must also be enabled and in use for it to function.
+
+Click on the category of interest in the Legend to see the effect; click again to remove it.
+
+= Where can I report bugs? =
+
+Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-category-colors).
+
 == Screenshots ==
- 
+
 1. The Events Calendar Category Colors Settings tab
 2. The Events Calendar Category Colors in action
+3. The Events Calendar Category Colors with Legend Superpowers in action
 
 == Changelog ==
+
+= 1.6.1 =
+* removed function remove_tribe_cat_once from merge
+* respaced rendered CSS so it looks better in 'view source'
+* added #legend_box.tribe-events-calendar to properly set category name text color
+* included function for checking TEC plugin active, missing from merge - OOPS
+* fixed PHP error in classes/categorycolors.php - TribeEvents not defined
+* merge issue#3
+* fix for CSS superpowers and Ajax
+* updated for miniColors 2.0
+
+= 1.6.0B =
+* still experimental!
+* refactoring work: changes under the hood for the benefit of mankind
+* the category legend can now have super-powers added to it
+* from Barry Hughes
 
 = 1.5.6 =
 * removed function remove_tribe_cat_once and put it into a gist to use as needed. Please refer to FAQ for details.
@@ -181,8 +206,11 @@ This plugin uses <a href="https://github.com/claviska/jquery-miniColors">jQuery 
 
 Some icons by <a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a>. All rights reserved.
 
+Thanks to jonahcoyote for some early help and direction.
+
+Big thanks to Barry Hughes (WebsiteBakery) for refactoring code and Legend Superpowers.
+
 == Upgrade Notice ==
 
 = 0.5 =
 This version integrates more tightly with The Events Calendar plugin putting settings on the same page.
-
