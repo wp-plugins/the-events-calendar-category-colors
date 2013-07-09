@@ -2,18 +2,19 @@
 
 	<ul id="legend">
 
-		<?php for ($i = 0; $i < $teccc->count; $i++): ?>
-
-			<li class="cat_<?php esc_attr_e($teccc->slugs[$i]) ?>">
-				<a href="<?php esc_attr_e($tec->getLink().trailingslashit(sanitize_title(__( 'category', 'tribe-events-calendar' ))).$teccc->slugs[$i]) ?>">
-					<?php esc_html_e($teccc->names[$i]) ?>
+		<?php foreach ($teccc->terms as $id => $attributes): ?>
+			<?php
+				$slug = esc_attr($attributes[Tribe_Events_Category_Colors::SLUG]);
+				$name = esc_attr($attributes[Tribe_Events_Category_Colors::NAME]);
+			?>
+			<li class="tribe-events-category-<?php echo $slug ?> tribe-events-category-<?php esc_attr_e($id) ?>">
+				<a href="<?php esc_attr_e($tec->getLink().trailingslashit(sanitize_title(__( 'category', 'teccc' ))).$slug) ?>">
+					<?php echo $name ?>
 				</a>
-				<?php if ($legendData): ?>
-					<input type="hidden" value="<?php esc_attr_e($teccc->slugs[$i]) ?>" />
-				<?php endif ?>
+				<input type="hidden" value="<?php echo $slug ?>" />
 			</li>
 
-		<?php endfor ?>
+		<?php endforeach ?>
 
 	</ul>
 

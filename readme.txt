@@ -1,9 +1,9 @@
 === The Events Calendar Category Colors ===
 Contributors: afragen, WebsiteBakery
 Tags: events, color, modern tribe, tribe
-Requires at least: 3.1
-Tested up to: 3.5
-Stable tag: 1.6.3
+Requires at least: 3.5
+Tested up to: 3.6
+Stable tag: 3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,35 +21,25 @@ Settings for The Events Calendar Category Colors plugin are located in their own
 1. Activate the plugin.
 1. Go to the Category Colors tab of The Event Calendar Settings page.
 
-To include a Category Color legend above your calendar you will need to place a copy of `ecp-page-template.php` in your theme's **events** directory, similar to `my-theme/events/ecp-page-template.php`. This file is found in The Events Calendar plugin's **views** directory. Please refer to <a href="http://tri.be/themers-guide-to-the-events-calendar/">Themer's Guide for The Events Calendar</a> for reference.
-
-Within your copy of `ecp-page-template.php` you will need to insert `<?php teccc_legend_hook(); ?>` where you want the legend to appear.
-
 == Frequently Asked Questions ==
 
 = Does the plugin require The Events Calendar plugin? =
 
-Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events-calendar/) is written by Modern Tribe, Inc. It requires at least The Events Calendar v2.0.5.
+Yes. [The Events Calendar plugin](http://wordpress.org/extend/plugins/the-events-calendar/) is written by Modern Tribe, Inc. It requires at least The Events Calendar v3.0.
 
-= My calendar is taking on the styling of my first event of the month =
 
-There are two things you can try.
+= What if I use a version of The Events Calendar 2.x? =
 
-1. With help from Barry Hughes, I've adapted a function that will remove the category class tag that appears in the article tag on that page. Usually this is when the **Default Page Template** is selected in the Events Calendar Settings. Simply <a href="https://gist.github.com/4324054">add the code in this gist</a> to your theme's _functions.php_ file. If it causes problems, and it may, just remove the code and try #2.
+The last compatible version of this plugin that works with TEC 2.x is [The Events Calendar Category Colors v1.6.3](http://downloads.wordpress.org/plugin/the-events-calendar-category-colors.1.6.3.zip).
 
-2. Using <a href="http://tri.be/support/documentation/events-calendar-themers-guide/">Themer's Guide for The Events Calendar</a> create a new _ecp-page-template.php_, adjust this new template to correspond to how you want your calendar displayed and choose **Default Events Template** from the Events Calendar Settings.
+= Where can I get more help? =
 
-= What are Legend Superpowers? =
-
-Legend Superpowers are an optional visual effect allowing visitors to focus only on those events that belong to categories of interest - without reloading the page and without eliminating other categories from view completely.
-
-It needs to be enabled in the Category Colors settings page. The Category Legend must also be enabled and in use for it to function.
-
-Click on the category of interest in the Legend to see the effect; click again to remove it.
+There is more extensive documentation of the plugins features and usage on the [The Events Calendar Category Colors wiki](https://github.com/afragen/events-calendar-category-colors/wiki).
 
 = Where can I report bugs? =
 
-Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-category-colors).
+1. Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-events-calendar-category-colors).
+2. Add a new issue on the [github repo](https://github.com/afragen/events-calendar-category-colors/issues?state=open).
 
 == Screenshots ==
 
@@ -58,6 +48,15 @@ Add a new topic on the [WordPress Support Forum](http://wordpress.org/tags/the-e
 3. The Events Calendar Category Colors with Legend Superpowers in action
 
 == Changelog ==
+
+= 3.0 =
+* updated for new TEC 3.0 code, will not work for TEC < 3.0
+* new instant preview of Settings
+* coloring in Month, List, Day and Photo views
+* coloring of tooltips in Week view
+* added some actions and filters, refer to wiki for listing
+* updated class and file naming to WordPress Coding Guidelines
+* new Help section of [Github Wiki](https://github.com/afragen/events-calendar-category-colors/wiki)
 
 = 1.6.3 =
 * add transition to Transparent/Color Picker option
