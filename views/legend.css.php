@@ -6,7 +6,7 @@
 	text-decoration:none;
 }
 
-#legend li {
+#tribe-events #legend li {
 	display: inline;
 	list-style-type:none;
 	padding: 7px;
@@ -14,3 +14,4 @@
 }
 
 #legend_box #legend li span { cursor: pointer; }
+
