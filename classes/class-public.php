@@ -5,6 +5,7 @@ class Tribe_Events_Category_Colors_Public {
 
 	protected $legendTargetHook = 'tribe_events_after_header';
 	protected $legendFilterHasRun = false;
+	protected $legendExtraView = array();
 
 
 	public function __construct( Tribe_Events_Category_Colors $teccc ) {
@@ -19,7 +20,7 @@ class Tribe_Events_Category_Colors_Public {
 	public function add_colored_categories( $query ) {
 		if( !isset( $query->query_vars['post_type'] ) or !isset( $query->query_vars['eventDisplay'] ) ) return;
 
-		$eventDisplays = array( 'month', 'upcoming', 'day', 'photo', 'week' );
+		$eventDisplays = array( 'month', 'upcoming', 'day', 'photo', 'week', 'all' );
 
 		if( $query->query_vars['post_type'] === 'tribe_events' and in_array( $query->query_vars['eventDisplay'], $eventDisplays, true ) ) {
 			$this->add_effects();
@@ -48,7 +49,9 @@ class Tribe_Events_Category_Colors_Public {
 
 	public function show_legend( $existingContent = '' ) {
 		$teccc_options = get_option( 'teccc_options' );
-		if( ( get_query_var( 'post_type' ) === 'tribe_events' ) and !( get_query_var( 'eventDisplay' ) === 'month' ) ) return;
+		$eventDisplays = array( 'month' );
+		$eventDisplays = array_merge( $eventDisplays, $this->legendExtraView );
+		if( ( get_query_var( 'post_type' ) === 'tribe_events' ) and !in_array( get_query_var( 'eventDisplay' ), $eventDisplays, true ) ) return;
 		if( !( isset( $teccc_options['add_legend'] ) and $teccc_options['add_legend'] === '1') ) return;
 		
 		$content = $this->teccc->view( 'legend', array(
@@ -86,4 +89,10 @@ class Tribe_Events_Category_Colors_Public {
 		// Indicate if they were doing it wrong (or not)
 		return ( !$this->legendFilterHasRun );
 	}
+	
+	public function add_legend_view( $view ) {
+		//takes 'upcoming', 'day', 'week', 'photo' as parameters
+		$this->legendExtraView[] = $view;
+	}
+
 }
